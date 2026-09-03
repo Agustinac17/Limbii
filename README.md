@@ -1,33 +1,42 @@
-Limbii
+# Limbii
 
+Limbii es un prototipo web pensado para representar una plataforma simple de administración de una red doméstica.
 
-Limbii es un proyecto desarrollado en el marco del Proyecto Integrador Final de la carrera Ingeniería en Sistemas de Información.
+La propuesta busca mostrar de una manera visual cómo una persona podría consultar qué dispositivos están conectados, organizarlos por perfiles, definir reglas de uso, pausar temporalmente el acceso a Internet y revisar eventos básicos de la red.
 
-El proyecto propone un sistema orientado a facilitar la administración y supervisión del acceso a Internet dentro de una red doméstica, permitiendo gestionar dispositivos, perfiles de usuarios y reglas de navegación desde una interfaz simple.
+Este repositorio contiene una primera versión del prototipo desarrollada con HTML, CSS y JavaScript. Su objetivo es representar la experiencia de uso y los principales flujos de la plataforma.
 
+Actualmente no realiza cambios reales sobre una red ni se conecta con dispositivos físicos. Las acciones, estados y datos que aparecen en pantalla son simulados para poder mostrar el funcionamiento esperado del sistema.
 
-Estado del proyecto
+## Cómo abrir el prototipo
 
-Proyecto actualmente en desarrollo.
+No es necesario instalar dependencias ni configurar un servidor.
 
-En este repositorio se documentarán progresivamente:
+1. Descargar o clonar este repositorio.
+2. Abrir la carpeta `prototipo`.
+3. Hacer doble clic sobre `index.html`.
 
-\- El prototipo de interfaz de usuario.
+El prototipo se abrirá directamente en el navegador.
 
-\- Las decisiones tomadas durante el desarrollo.
+También puede abrirse desde Chrome, Edge o Firefox.
 
-\- La documentación asociada al Proyecto Integrador Final.
+## Qué se puede probar
 
-\- Las distintas versiones y avances del sistema.
+Dentro del prototipo se pueden recorrer distintas secciones:
 
+- Inicio y estado general de la red.
+- Dispositivos conectados.
+- Perfiles de usuarios.
+- Reglas de acceso.
+- Registro de actividad.
+- Configuración general.
 
-&#x09;Estructura inicial
+Algunas acciones, como pausar un dispositivo, activar reglas o crear una nueva regla, funcionan de manera simulada para facilitar la navegación del prototipo.
 
-&#x09;Limbii/
+## Estructura
 
-&#x09;├── prototipo/
-
-&#x09;├── documentacion/
-
-&#x09;└── README.md
-
+```text
+prototipo/
+├── index.html
+├── estilos.css
+└── script.js
