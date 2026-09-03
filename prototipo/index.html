@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Limbii ||| Control de red familiar |||</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <div class="aplicacion">
+
+        <!-- Barra lateral -->
+        <aside class="barra-lateral">
+
+            <div class="marca">
+                <div class="marca-simbolo">L</div>
+
+                <div>
+                    <h1>Limbii</h1>
+                    <span>Tu red, más simple</span>
+                </div>
+            </div>
+
+            <nav class="menu">
+
+                <button class="menu-item activo" data-seccion="inicio">
+                    <span class="menu-indicador"></span>
+                    Inicio
+                </button>
+
+                <button class="menu-item" data-seccion="dispositivos">
+                    <span class="menu-indicador"></span>
+                    Dispositivos
+                </button>
+
+                <button class="menu-item" data-seccion="perfiles">
+                    <span class="menu-indicador"></span>
+                    Perfiles
+                </button>
+
+                <button class="menu-item" data-seccion="reglas">
+                    <span class="menu-indicador"></span>
+                    Reglas
+                </button>
+
+                <button class="menu-item" data-seccion="actividad">
+                    <span class="menu-indicador"></span>
+                    Actividad
+                </button>
+
+                <button class="menu-item" data-seccion="configuracion">
+                    <span class="menu-indicador"></span>
+                    Configuración
+                </button>
+
+            </nav>
+
+            <div class="barra-pie">
+                <p>Prototipo académico v0</p>
+                <span>Datos simulados</span>
+            </div>
+
+        </aside>
+
+
+        <!-- Contenido -->
+        <main class="contenido">
+
+            <!-- Cabecera -->
+            <header class="cabecera">
+
+                <div>
+                    <p class="cabecera-superior">Panel principal</p>
+                    <h2>Buen día, Agustina</h2>
+                    <p class="cabecera-descripcion">
+                        Todo está funcionando normalmente en casa.
+                    </p>
+                </div>
+
+                <div class="cabecera-acciones">
+
+                    <div class="estado-sistema">
+                        <span class="estado-punto"></span>
+                        Sistema activo
+                    </div>
+
+                    <button class="boton-secundario" id="botonPausarInternet">
+                        Pausar Internet
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- SECCIÓN INICIO -->
+            <section class="seccion activa" id="inicio">
+
+                <!-- Estado general -->
+                <div class="estado-red">
+
+                    <div class="estado-red-texto">
+                        <span class="etiqueta">ESTADO DE LA RED</span>
+
+                        <h3>Tu casa está conectada</h3>
+
+                        <p>
+                            8 dispositivos están usando Internet en este momento.
+                            No se detectaron problemas.
+                        </p>
+                    </div>
+
+                    <div class="estado-red-dato">
+                        <span>Conexión</span>
+                        <strong>Activa</strong>
+                        <small>Última verificación: ahora</small>
+                    </div>
+
+                </div>
+
+
+                <!-- Tarjetas resumen -->
+                <div class="resumen">
+
+                    <article class="tarjeta-resumen">
+                        <span class="tarjeta-titulo">Dispositivos</span>
+
+                        <div class="tarjeta-numero">8</div>
+
+                        <p>conectados ahora</p>
+
+                        <button class="enlace-interno" data-ir="dispositivos">
+                            Ver dispositivos
+                        </button>
+                    </article>
+
+
+                    <article class="tarjeta-resumen">
+                        <span class="tarjeta-titulo">Perfiles</span>
+
+                        <div class="tarjeta-numero">3</div>
+
+                        <p>perfiles familiares</p>
+
+                        <button class="enlace-interno" data-ir="perfiles">
+                            Administrar perfiles
+                        </button>
+                    </article>
+
+
+                    <article class="tarjeta-resumen">
+                        <span class="tarjeta-titulo">Reglas activas</span>
+
+                        <div class="tarjeta-numero">5</div>
+
+                        <p>protecciones aplicadas</p>
+
+                        <button class="enlace-interno" data-ir="reglas">
+                            Ver reglas
+                        </button>
+                    </article>
+
+                </div>
+
+
+                <div class="grilla-principal">
+
+                    <!-- Dispositivos principales -->
+                    <article class="panel">
+
+                        <div class="panel-cabecera">
+
+                            <div>
+                                <span class="etiqueta">EN CASA AHORA</span>
+                                <h3>Dispositivos conectados</h3>
+                            </div>
+
+                            <button class="boton-texto" data-ir="dispositivos">
+                                Ver todos
+                            </button>
+
+                        </div>
+
+
+                        <div class="lista-dispositivos">
+
+                            <div class="dispositivo">
+
+                                <div class="dispositivo-icono">
+                                    PC
+                                </div>
+
+                                <div class="dispositivo-info">
+                                    <strong>Notebook de Agustina</strong>
+                                    <span>Perfil: Adultos</span>
+                                </div>
+
+                                <div class="dispositivo-estado">
+                                    <span class="estado-punto"></span>
+                                    En línea
+                                </div>
+
+                            </div>
+
+
+                            <div class="dispositivo">
+
+                                <div class="dispositivo-icono">
+                                    TV
+                                </div>
+
+                                <div class="dispositivo-info">
+                                    <strong>Smart TV Living</strong>
+                                    <span>Perfil: Casa</span>
+                                </div>
+
+                                <div class="dispositivo-estado">
+                                    <span class="estado-punto"></span>
+                                    En línea
+                                </div>
+
+                            </div>
+
+
+                            <div class="dispositivo">
+
+                                <div class="dispositivo-icono">
+                                    TL
+                                </div>
+
+                                <div class="dispositivo-info">
+                                    <strong>Teléfono de Mateo</strong>
+                                    <span>Perfil: Mateo</span>
+                                </div>
+
+                                <div class="dispositivo-estado">
+                                    <span class="estado-punto"></span>
+                                    En línea
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Rutinas -->
+                    <article class="panel panel-rutinas">
+
+                        <div class="panel-cabecera">
+
+                            <div>
+                                <span class="etiqueta">HOY</span>
+                                <h3>Próximas reglas</h3>
+                            </div>
+
+                        </div>
+
+                        <div class="rutina">
+
+                            <div>
+                                <strong>Horario de descanso</strong>
+                                <p>Perfil Mateo</p>
+                            </div>
+
+                            <span>22:00</span>
+
+                        </div>
+
+
+                        <div class="rutina">
+
+                            <div>
+                                <strong>Acceso nocturno</strong>
+                                <p>Todos los dispositivos</p>
+                            </div>
+
+                            <span>00:00</span>
+
+                        </div>
+
+
+                        <button class="boton-principal ancho-completo" data-ir="reglas">
+                            Administrar reglas
+                        </button>
+
+                    </article>
+
+                </div>
+
+
+                <!-- Actividad reciente -->
+                <article class="panel actividad-reciente">
+
+                    <div class="panel-cabecera">
+
+                        <div>
+                            <span class="etiqueta">ÚLTIMA ACTIVIDAD</span>
+                            <h3>Qué pasó recientemente</h3>
+                        </div>
+
+                        <button class="boton-texto" data-ir="actividad">
+                            Ver actividad completa
+                        </button>
+
+                    </div>
+
+
+                    <div class="actividad-item">
+
+                        <div class="actividad-hora">09:42</div>
+
+                        <div class="actividad-linea">
+                            <span></span>
+                        </div>
+
+                        <div class="actividad-texto">
+                            <strong>Notebook de Agustina se conectó a la red</strong>
+                            <p>Dispositivo reconocido automáticamente.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="actividad-item">
+
+                        <div class="actividad-hora">08:15</div>
+
+                        <div class="actividad-linea">
+                            <span></span>
+                        </div>
+
+                        <div class="actividad-texto">
+                            <strong>Se aplicó el horario escolar de Mateo</strong>
+                            <p>Las reglas del perfil se encuentran activas.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="actividad-item">
+
+                        <div class="actividad-hora">07:03</div>
+
+                        <div class="actividad-linea">
+                            <span></span>
+                        </div>
+
+                        <div class="actividad-texto">
+                            <strong>Smart TV Living volvió a estar disponible</strong>
+                            <p>La pausa programada finalizó correctamente.</p>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- SECCIÓN DISPOSITIVOS -->
+            <section class="seccion" id="dispositivos">
+
+                <div class="titulo-seccion">
+
+                    <div>
+                        <span class="etiqueta">RED DOMÉSTICA</span>
+                        <h2>Dispositivos</h2>
+                        <p>
+                            Consultá y administrá los equipos conectados a tu red.
+                        </p>
+                    </div>
+
+                    <button class="boton-principal">
+                        Agregar dispositivo
+                    </button>
+
+                </div>
+
+
+                <article class="panel">
+
+                    <div class="barra-filtros">
+
+                        <input
+                            type="search"
+                            id="buscarDispositivo"
+                            placeholder="Buscar dispositivo"
+                        >
+
+                        <select>
+                            <option>Todos los perfiles</option>
+                            <option>Adultos</option>
+                            <option>Mateo</option>
+                            <option>Casa</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="tabla-simple">
+
+                        <div class="tabla-fila tabla-encabezado">
+                            <span>Dispositivo</span>
+                            <span>Perfil</span>
+                            <span>Estado</span>
+                            <span>Acceso</span>
+                        </div>
+
+
+                        <div class="tabla-fila dispositivo-buscable">
+
+                            <div>
+                                <strong>Notebook de Agustina</strong>
+                                <small>192.168.1.20</small>
+                            </div>
+
+                            <span>Adultos</span>
+
+                            <span class="estado-en-linea">
+                                En línea
+                            </span>
+
+                            <button class="boton-pausa">
+                                Pausar
+                            </button>
+
+                        </div>
+
+
+                        <div class="tabla-fila dispositivo-buscable">
+
+                            <div>
+                                <strong>Teléfono de Mateo</strong>
+                                <small>192.168.1.31</small>
+                            </div>
+
+                            <span>Mateo</span>
+
+                            <span class="estado-en-linea">
+                                En línea
+                            </span>
+
+                            <button class="boton-pausa">
+                                Pausar
+                            </button>
+
+                        </div>
+
+
+                        <div class="tabla-fila dispositivo-buscable">
+
+                            <div>
+                                <strong>Smart TV Living</strong>
+                                <small>192.168.1.45</small>
+                            </div>
+
+                            <span>Casa</span>
+
+                            <span class="estado-en-linea">
+                                En línea
+                            </span>
+
+                            <button class="boton-pausa">
+                                Pausar
+                            </button>
+
+                        </div>
+
+
+                        <div class="tabla-fila dispositivo-buscable">
+
+                            <div>
+                                <strong>Tablet</strong>
+                                <small>192.168.1.52</small>
+                            </div>
+
+                            <span>Mateo</span>
+
+                            <span class="estado-desconectado">
+                                Desconectado
+                            </span>
+
+                            <button class="boton-pausa" disabled>
+                                Pausar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- SECCIÓN PERFILES -->
+            <section class="seccion" id="perfiles">
+
+                <div class="titulo-seccion">
+
+                    <div>
+                        <span class="etiqueta">PERSONAS Y GRUPOS</span>
+                        <h2>Perfiles</h2>
+                        <p>
+                            Organizá dispositivos y reglas según cada integrante de la casa.
+                        </p>
+                    </div>
+
+                    <button class="boton-principal">
+                        Crear perfil
+                    </button>
+
+                </div>
+
+
+                <div class="perfiles-grid">
+
+                    <article class="perfil">
+
+                        <div class="perfil-inicial">
+                            A
+                        </div>
+
+                        <div class="perfil-contenido">
+                            <h3>Adultos</h3>
+                            <p>3 dispositivos</p>
+
+                            <div class="perfil-regla">
+                                Sin restricciones horarias
+                            </div>
+                        </div>
+
+                        <button class="boton-secundario">
+                            Administrar
+                        </button>
+
+                    </article>
+
+
+                    <article class="perfil perfil-destacado">
+
+                        <div class="perfil-inicial">
+                            M
+                        </div>
+
+                        <div class="perfil-contenido">
+                            <h3>Mateo</h3>
+                            <p>2 dispositivos</p>
+
+                            <div class="perfil-regla">
+                                Horario protegido activo
+                            </div>
+                        </div>
+
+                        <button class="boton-secundario">
+                            Administrar
+                        </button>
+
+                    </article>
+
+
+                    <article class="perfil">
+
+                        <div class="perfil-inicial">
+                            C
+                        </div>
+
+                        <div class="perfil-contenido">
+                            <h3>Casa</h3>
+                            <p>3 dispositivos</p>
+
+                            <div class="perfil-regla">
+                                Dispositivos compartidos
+                            </div>
+                        </div>
+
+                        <button class="boton-secundario">
+                            Administrar
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- SECCIÓN REGLAS -->
+            <section class="seccion" id="reglas">
+
+                <div class="titulo-seccion">
+
+                    <div>
+                        <span class="etiqueta">CONTROL DE ACCESO</span>
+                        <h2>Reglas</h2>
+                        <p>
+                            Definí cuándo y cómo pueden conectarse los perfiles.
+                        </p>
+                    </div>
+
+                    <button class="boton-principal" id="nuevaRegla">
+                        Nueva regla
+                    </button>
+
+                </div>
+
+
+                <article class="panel">
+
+                    <div class="regla">
+
+                        <div>
+                            <span class="regla-tipo">HORARIO</span>
+                            <h3>Descanso nocturno</h3>
+                            <p>Mateo · Todos los días de 22:00 a 07:00</p>
+                        </div>
+
+                        <label class="interruptor">
+                            <input type="checkbox" checked>
+                            <span></span>
+                        </label>
+
+                    </div>
+
+
+                    <div class="regla">
+
+                        <div>
+                            <span class="regla-tipo">CONTENIDO</span>
+                            <h3>Navegación protegida</h3>
+                            <p>Mateo · Protección de categorías no adecuadas.</p>
+                        </div>
+
+                        <label class="interruptor">
+                            <input type="checkbox" checked>
+                            <span></span>
+                        </label>
+
+                    </div>
+
+
+                    <div class="regla">
+
+                        <div>
+                            <span class="regla-tipo">HORARIO</span>
+                            <h3>Horario escolar</h3>
+                            <p>Mateo · Lunes a viernes de 08:00 a 12:00</p>
+                        </div>
+
+                        <label class="interruptor">
+                            <input type="checkbox" checked>
+                            <span></span>
+                        </label>
+
+                    </div>
+
+
+                    <div class="regla">
+
+                        <div>
+                            <span class="regla-tipo">GENERAL</span>
+                            <h3>Pausa nocturna de dispositivos compartidos</h3>
+                            <p>Casa · Todos los días desde las 00:00.</p>
+                        </div>
+
+                        <label class="interruptor">
+                            <input type="checkbox">
+                            <span></span>
+                        </label>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- SECCIÓN ACTIVIDAD -->
+            <section class="seccion" id="actividad">
+
+                <div class="titulo-seccion">
+
+                    <div>
+                        <span class="etiqueta">REGISTRO</span>
+                        <h2>Actividad</h2>
+                        <p>
+                            Consultá los principales eventos ocurridos en la red.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <article class="panel">
+
+                    <div class="actividad-listado">
+
+                        <div class="registro">
+
+                            <div class="registro-fecha">
+                                <strong>Hoy</strong>
+                                <span>09:42</span>
+                            </div>
+
+                            <div>
+                                <strong>Dispositivo conectado</strong>
+                                <p>Notebook de Agustina ingresó a la red.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="registro">
+
+                            <div class="registro-fecha">
+                                <strong>Hoy</strong>
+                                <span>08:15</span>
+                            </div>
+
+                            <div>
+                                <strong>Regla aplicada</strong>
+                                <p>Comenzó el horario escolar del perfil Mateo.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="registro">
+
+                            <div class="registro-fecha">
+                                <strong>Hoy</strong>
+                                <span>07:03</span>
+                            </div>
+
+                            <div>
+                                <strong>Acceso restaurado</strong>
+                                <p>Smart TV Living recuperó el acceso a Internet.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="registro">
+
+                            <div class="registro-fecha">
+                                <strong>Ayer</strong>
+                                <span>22:00</span>
+                            </div>
+
+                            <div>
+                                <strong>Regla aplicada</strong>
+                                <p>Comenzó el descanso nocturno del perfil Mateo.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- SECCIÓN CONFIGURACIÓN -->
+            <section class="seccion" id="configuracion">
+
+                <div class="titulo-seccion">
+
+                    <div>
+                        <span class="etiqueta">SISTEMA</span>
+                        <h2>Configuración</h2>
+                        <p>
+                            Preferencias generales del prototipo Limbii.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="configuracion-grid">
+
+                    <article class="panel">
+
+                        <span class="etiqueta">RED</span>
+                        <h3>Información del nodo Limbii</h3>
+
+                        <div class="dato-configuracion">
+                            <span>Nombre</span>
+                            <strong>Limbii Casa</strong>
+                        </div>
+
+                        <div class="dato-configuracion">
+                            <span>Dirección local</span>
+                            <strong>192.168.1.10</strong>
+                        </div>
+
+                        <div class="dato-configuracion">
+                            <span>Estado</span>
+                            <strong>Activo</strong>
+                        </div>
+
+                    </article>
+
+
+                    <article class="panel">
+
+                        <span class="etiqueta">PREFERENCIAS</span>
+                        <h3>Notificaciones</h3>
+
+                        <div class="preferencia">
+
+                            <div>
+                                <strong>Nuevos dispositivos</strong>
+                                <p>Avisar cuando aparece un equipo desconocido.</p>
+                            </div>
+
+                            <label class="interruptor">
+                                <input type="checkbox" checked>
+                                <span></span>
+                            </label>
+
+                        </div>
+
+
+                        <div class="preferencia">
+
+                            <div>
+                                <strong>Cambios de reglas</strong>
+                                <p>Registrar modificaciones realizadas por el administrador.</p>
+                            </div>
+
+                            <label class="interruptor">
+                                <input type="checkbox" checked>
+                                <span></span>
+                            </label>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- Avisos del prototipo -->
+    <div class="notificacion" id="notificacion">
+        Acción realizada
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal-fondo" id="modalRegla">
+
+        <div class="modal">
+
+            <div class="modal-cabecera">
+                <div>
+                    <span class="etiqueta">NUEVA REGLA</span>
+                    <h3>Crear una regla</h3>
+                </div>
+
+                <button class="modal-cerrar" id="cerrarModal">
+                    ×
+                </button>
+            </div>
+
+
+            <form id="formRegla">
+
+                <label>
+                    Nombre de la regla
+
+                    <input
+                        type="text"
+                        placeholder="Ej. Horario de estudio"
+                        required
+                    >
+                </label>
+
+
+                <label>
+                    Perfil
+
+                    <select required>
+                        <option value="">Seleccionar perfil</option>
+                        <option>Adultos</option>
+                        <option>Mateo</option>
+                        <option>Casa</option>
+                    </select>
+                </label>
+
+
+                <label>
+                    Tipo de regla
+
+                    <select required>
+                        <option>Horario</option>
+                        <option>Contenido</option>
+                        <option>Pausa de Internet</option>
+                    </select>
+                </label>
+
+
+                <div class="modal-acciones">
+                    <button
+                        type="button"
+                        class="boton-secundario"
+                        id="cancelarModal"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="boton-principal"
+                    >
+                        Guardar regla
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
