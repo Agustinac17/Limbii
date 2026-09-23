@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limbii · {% block titulo %}Inicio{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+    <div class="flex min-h-screen" x-data="{ menuAbierto: true }">
+
+        <!-- Sidebar -->
+        <aside class="bg-white border-r border-gray-200 w-64 flex-shrink-0 flex flex-col"
+               :class="menuAbierto ? '' : 'hidden'" >
+
+            <!-- Logo -->
+            <div class="p-6 border-b border-gray-100">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-rose-500 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">L</span>
+                    </div>
+                    <div>
+                        <h1 class="font-semibold text-gray-900">Limbii</h1>
+                        <p class="text-xs text-gray-400">Tu red, más simple</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navegación -->
+            <nav class="flex-1 p-4 space-y-1">
+                <a href="/"
+                   class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm
+                          {% if pagina_activa == 'inicio' %}bg-rose-50 text-rose-700 font-medium{% else %}text-gray-600 hover:bg-gray-50{% endif %}">
+                    <span></span> Inicio
+                </a>
+                <a href="/dispositivos"
+                   class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm
+                          {% if pagina_activa == 'dispositivos' %}bg-rose-50 text-rose-700 font-medium{% else %}text-gray-600 hover:bg-gray-50{% endif %}">
+                    <span></span> Dispositivos
+                </a>
+                <a href="/perfiles"
+                   class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm
+                          {% if pagina_activa == 'perfiles' %}bg-rose-50 text-rose-700 font-medium{% else %}text-gray-600 hover:bg-gray-50{% endif %}">
+                    <span></span> Perfiles
+                </a>
+                <a href="/actividad"
+                   class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm
+                          {% if pagina_activa == 'actividad' %}bg-rose-50 text-rose-700 font-medium{% else %}text-gray-600 hover:bg-gray-50{% endif %}">
+                    <span></span> Actividad
+                </a>
+            </nav>
+
+            <!-- Estado del sistema -->
+            <div class="p-4 border-t border-gray-100">
+                <div class="flex items-center gap-2 text-xs text-gray-400">
+                    <span class="w-2 h-2 bg-green-400 rounded-full"></span>
+                    Sistema activo
+                </div>
+            </div>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="flex-1 overflow-auto">
+
+            <!-- Header -->
+            <header class="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+                <div>
+                    <h2 class="text-lg font-semibold text-gray-900">{% block encabezado %}Panel principal{% endblock %}</h2>
+                    <p class="text-sm text-gray-500">{% block subtitulo %}{% endblock %}</p>
+                </div>
+                <button @click="menuAbierto = !menuAbierto"
+                        class="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100 lg:hidden">
+                    ☰
+                </button>
+            </header>
+
+            <!-- Contenido de la página -->
+            <div class="p-6">
+                {% block contenido %}{% endblock %}
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

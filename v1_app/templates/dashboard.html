@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% set pagina_activa = "inicio" %}
+
+{% block titulo %}Inicio{% endblock %}
+{% block encabezado %}Buen día, Agustina{% endblock %}
+{% block subtitulo %}Todo está funcionando normalmente en casa.{% endblock %}
+
+{% block contenido %}
+
+<!-- Tarjetas de resumen -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+
+    <div class="bg-white rounded-xl border border-gray-200 p-5">
+        <p class="text-sm text-gray-500 mb-1">Dispositivos</p>
+        <p class="text-2xl font-semibold text-gray-900">{{ total_dispositivos }}</p>
+        <p class="text-xs text-gray-400 mt-1">{{ en_linea }} en línea</p>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-200 p-5">
+        <p class="text-sm text-gray-500 mb-1">Perfiles</p>
+        <p class="text-2xl font-semibold text-gray-900">{{ total_perfiles }}</p>
+        <p class="text-xs text-gray-400 mt-1">perfiles familiares</p>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-200 p-5">
+        <p class="text-sm text-gray-500 mb-1">Políticas activas</p>
+        <p class="text-2xl font-semibold text-gray-900">{{ total_politicas }}</p>
+        <p class="text-xs text-gray-400 mt-1">protecciones aplicadas</p>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-200 p-5">
+        <p class="text-sm text-gray-500 mb-1">Conexión</p>
+        <p class="text-2xl font-semibold text-rose-500">Activa</p>
+        <p class="text-xs text-gray-400 mt-1">última verificación ahora</p>
+    </div>
+
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+    <!-- Dispositivos conectados -->
+    <div class="bg-white rounded-xl border border-gray-200">
+        <div class="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
+            <h3 class="font-medium text-gray-900">Dispositivos conectados</h3>
+            <a href="/dispositivos" class="text-sm text-rose-500 hover:text-rose-600">Ver todos →</a>
+        </div>
+        <div class="divide-y divide-gray-50">
+            {% if dispositivos %}
+                {% for d in dispositivos %}
+                <div class="px-5 py-3 flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-900">
+                            {{ d.nombre_asignado or d.hostname or d.direccion_ip }}
+                        </p>
+                        <p class="text-xs text-gray-400">
+                            Perfil: {{ d.perfil_nombre or 'Sin asignar' }}
+                        </p>
+                    </div>
+                    <span class="flex items-center gap-1.5 text-xs
+                                 {% if d.en_linea %}text-green-600{% else %}text-gray-400{% endif %}">
+                        <span class="w-1.5 h-1.5 rounded-full
+                                     {% if d.en_linea %}bg-green-400{% else %}bg-gray-300{% endif %}"></span>
+                        {{ 'En línea' if d.en_linea else 'Desconectado' }}
+                    </span>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="px-5 py-8 text-center text-sm text-gray-400">
+                    Aún no se detectaron dispositivos. El escáner se activa al conectar la Pi a la red.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Última actividad -->
+    <div class="bg-white rounded-xl border border-gray-200">
+        <div class="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
+            <h3 class="font-medium text-gray-900">Última actividad</h3>
+            <a href="/actividad" class="text-sm text-rose-500 hover:text-rose-600">Ver todo →</a>
+        </div>
+        <div class="divide-y divide-gray-50">
+            {% if ultimos_eventos %}
+                {% for e in ultimos_eventos %}
+                <div class="px-5 py-3">
+                    <div class="flex items-center justify-between">
+                        <p class="text-sm text-gray-700">{{ e.descripcion }}</p>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-0.5">{{ e.creado_en }}</p>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="px-5 py-8 text-center text-sm text-gray-400">
+                    Sin eventos registrados.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
