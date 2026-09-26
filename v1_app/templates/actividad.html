@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% set pagina_activa = "actividad" %}
+
+{% block titulo %}Actividad{% endblock %}
+{% block encabezado %}Actividad{% endblock %}
+{% block subtitulo %}Registro de eventos del sistema.{% endblock %}
+
+{% block contenido %}
+
+<div class="bg-white rounded-xl border border-gray-200">
+    {% if eventos %}
+    <div class="divide-y divide-gray-50">
+        {% for e in eventos %}
+        <div class="px-5 py-4 flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5
+                        {% if 'creado' in e.tipo_evento or 'iniciado' in e.tipo_evento %}bg-green-50 text-green-600
+                        {% elif 'bloqueado' in e.tipo_evento %}bg-red-50 text-red-500
+                        {% elif 'asignado' in e.tipo_evento %}bg-blue-50 text-blue-500
+                        {% else %}bg-gray-50 text-gray-400{% endif %}">
+                {% if 'creado' in e.tipo_evento or 'iniciado' in e.tipo_evento %}✓
+                {% elif 'bloqueado' in e.tipo_evento %}✕
+                {% elif 'asignado' in e.tipo_evento %}→
+                {% elif 'conectado' in e.tipo_evento %}
+                {% else %}•{% endif %}
+            </div>
+            <div class="flex-1 min-w-0">
+                <p class="text-sm text-gray-800">{{ e.descripcion }}</p>
+                <div class="flex items-center gap-3 mt-1">
+                    <span class="text-xs text-gray-400">{{ e.creado_en }}</span>
+                    {% if e.dispositivo_nombre %}
+                    <span class="text-xs text-gray-400">· {{ e.dispositivo_nombre }}</span>
+                    {% endif %}
+                    {% if e.perfil_nombre %}
+                    <span class="text-xs text-gray-400">· {{ e.perfil_nombre }}</span>
+                    {% endif %}
+                </div>
+                {% if e.detalle %}
+                <p class="text-xs text-gray-400 mt-1">{{ e.detalle }}</p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="px-5 py-16 text-center">
+        <p class="text-gray-400">Sin eventos registrados.</p>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% set pagina_activa = "dispositivos" %}
+
+{% block titulo %}Dispositivos{% endblock %}
+{% block encabezado %}Dispositivos{% endblock %}
+{% block subtitulo %}Equipos detectados en la red del hogar.{% endblock %}
+
+{% block contenido %}
+
+<div class="bg-white rounded-xl border border-gray-200">
+    {% if dispositivos %}
+    <div class="overflow-x-auto">
+        <table class="w-full">
+            <thead>
+                <tr class="border-b border-gray-100 text-left">
+                    <th class="px-5 py-3 text-xs font-medium text-gray-500 uppercase">Dispositivo</th>
+                    <th class="px-5 py-3 text-xs font-medium text-gray-500 uppercase">IP</th>
+                    <th class="px-5 py-3 text-xs font-medium text-gray-500 uppercase">MAC</th>
+                    <th class="px-5 py-3 text-xs font-medium text-gray-500 uppercase">Perfil</th>
+                    <th class="px-5 py-3 text-xs font-medium text-gray-500 uppercase">Estado</th>
+                    <th class="px-5 py-3 text-xs font-medium text-gray-500 uppercase">Acción</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-50">
+                {% for d in dispositivos %}
+                <tr>
+                    <td class="px-5 py-3">
+                        <p class="text-sm font-medium text-gray-900">
+                            {{ d.nombre_asignado or d.hostname or 'Desconocido' }}
+                        </p>
+                        <p class="text-xs text-gray-400">{{ d.hostname or '' }}</p>
+                    </td>
+                    <td class="px-5 py-3 text-sm text-gray-600 font-mono">{{ d.direccion_ip }}</td>
+                    <td class="px-5 py-3 text-sm text-gray-400 font-mono text-xs">{{ d.direccion_mac }}</td>
+                    <td class="px-5 py-3">
+                        <span class="text-sm {% if d.perfil_nombre %}text-gray-700{% else %}text-gray-400{% endif %}">
+                            {{ d.perfil_nombre or 'Sin asignar' }}
+                        </span>
+                    </td>
+                    <td class="px-5 py-3">
+                        <span class="inline-flex items-center gap-1.5 text-xs
+                                     {% if d.en_linea %}text-green-600{% else %}text-gray-400{% endif %}">
+                            <span class="w-1.5 h-1.5 rounded-full
+                                         {% if d.en_linea %}bg-green-400{% else %}bg-gray-300{% endif %}"></span>
+                            {{ 'En línea' if d.en_linea else 'Desconectado' }}
+                        </span>
+                    </td>
+                    <td class="px-5 py-3">
+                        <select data-id-dispositivo="{{ d.id_dispositivo }}"
+                                onchange="asignarPerfil(this.dataset.idDispositivo, this.value)"
+                                class="text-sm border border-gray-200 rounded-lg px-2 py-1 text-gray-600">
+                            <option value="">Asignar perfil...</option>
+                            {% for p in perfiles %}
+                            <option value="{{ p.id_perfil }}"
+                                    {% if d.id_perfil == p.id_perfil %}selected{% endif %}>
+                                {{ p.nombre }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="px-5 py-16 text-center">
+        <p class="text-gray-400 mb-1">Aún no se detectaron dispositivos</p>
+        <p class="text-sm text-gray-300">El escáner se activa al conectar Limbii a la red del hogar.</p>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+async function asignarPerfil(idDispositivo, idPerfil) {
+    if (!idPerfil) return;
+    const resp = await fetch(`/api/dispositivos/${idDispositivo}/asignar?id_perfil=${idPerfil}`, {
+        method: 'POST'
+    });
+    if (resp.ok) {
+        window.location.reload();
+    }
+}
+</script>
+
+{% endblock %}
